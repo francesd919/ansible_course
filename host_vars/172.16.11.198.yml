@@ -1,3 +1,5 @@
 ---
 apache_package: httpd
 apache_service: httpd
+password_auth: no
+ssh_template_file: sshd_config.ubuntu.j2

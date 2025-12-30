@@ -19,3 +19,12 @@
   ansible.posix.authorized_key:
     user: simone
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARPwultjqH+Y9QrUGys2rqFaJz2B1nVtEiNLktXuy4X frances@ubuntu-ws"
+
+- name: configure openssh based on the template
+  ansible.builtin.template:
+    src: "{{ ssh_template_file }}"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_sshd
